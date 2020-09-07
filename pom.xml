@@ -23,7 +23,7 @@
         <shiro.version>1.4.0</shiro.version>
         <shiro-redis.version>3.2.3</shiro-redis.version>
         <lombok.version>1.18.4</lombok.version>
-        <fastjson.version>1.2.7</fastjson.version>
+        <fastjson.version>1.2.31</fastjson.version>
         <commons-lang.version>3.7</commons-lang.version>
         <spring-data-redis.version>2.1.10.RELEASE</spring-data-redis.version>
     </properties>
