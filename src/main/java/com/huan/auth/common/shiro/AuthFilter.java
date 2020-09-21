@@ -6,8 +6,6 @@ import com.huan.auth.service.UserInfoService;
 import org.apache.shiro.web.servlet.OncePerRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -34,16 +32,19 @@ public class AuthFilter extends OncePerRequestFilter {
     @Value("${web.service.validate-login}")
     private Boolean validateLogin;
 
-
+    /**
+     * 拦截方法
+     * @param servletRequest
+     * @param servletResponse
+     * @param filterChain
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doFilterInternal(ServletRequest servletRequest, ServletResponse servletResponse,
                                     FilterChain filterChain) throws ServletException, IOException {
         String guid = servletRequest.getParameter("guid");
-        if(null==guid||"".equals(guid)) {
-            SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken("-1", ""));
-        }else {
-            SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(guid, ""));
-        }
+
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 

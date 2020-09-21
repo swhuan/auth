@@ -1,10 +1,7 @@
 package com.huan.auth.bean;
 
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 

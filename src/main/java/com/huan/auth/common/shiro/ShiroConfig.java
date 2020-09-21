@@ -42,12 +42,12 @@ public class ShiroConfig {
      */
     @Bean
     public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
-        ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
 
+        ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         //设置 SecurityManager
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         Map<String, Filter> mapFilter = new LinkedHashMap<>();
-        //配置鉴权filter
+        //配置自定义访问拦截器
         mapFilter.put("authFilter", authFilter());
         shiroFilterFactoryBean.setFilters(mapFilter);
 
